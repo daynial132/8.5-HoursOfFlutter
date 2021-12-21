@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:untitled/pages/home_page.dart';
 import 'package:untitled/pages/login_page.dart';
+import "package:google_fonts/google_fonts.dart";
 
 void main(){
   runApp(MyApp());
@@ -17,12 +18,16 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
    //   home:HomePage(),
       themeMode: ThemeMode.dark,
-      theme: ThemeData(primarySwatch:Colors.lightGreen),
+      theme: ThemeData(
+          primarySwatch:Colors.lightGreen,
+        fontFamily: GoogleFonts.lato().fontFamily
+        //primaryTextTheme: GoogleFonts.latoTextTheme(),
+      ),
       darkTheme: ThemeData(
        brightness: Brightness.light,
         primarySwatch:Colors.deepPurple
       ),
-      initialRoute: "/home",
+     // initialRoute: "/home",
       routes: {
         "/" :(context) => LoginPage(),
         "/home": (context) => HomePage(),
