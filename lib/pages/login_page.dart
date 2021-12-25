@@ -15,95 +15,82 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Material(
-      child:SingleChildScrollView(
-      child: Column(
-        children: [
-          Image.asset(
-              "assets/images/login.png",
-              fit: BoxFit.cover,
-              height:300,
-          ),
-        SizedBox(
-          height:20.0,
+        child: SingleChildScrollView(
+            child: Column(
+      children: [
+        Image.asset(
+          "assets/images/hey.png",
+          fit: BoxFit.cover,
+          height: 300,
         ),
-         Text(
+        SizedBox(
+          height: 20.0,
+        ),
+        Text(
           "Welcome $name",
           textAlign: TextAlign.center,
-          style:TextStyle(fontSize: 25,
-              fontWeight: FontWeight.bold,
-          color: Colors.grey),
+          style: TextStyle(
+              fontSize: 25, fontWeight: FontWeight.bold, color: Colors.grey),
         ),
-
-          Padding(padding: const EdgeInsets.symmetric(vertical: 16.0,horizontal: 32.0),
-          child:
-          Column(
+        Padding(
+          padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 32.0),
+          child: Column(
             children: [
               TextFormField(
                 decoration: InputDecoration(
-                    hintText: "Enter User Name",
-                    labelText: "User Name"
-                ),
-                onChanged: (value){
+                    hintText: "Enter User Name", labelText: "User Name"),
+                onChanged: (value) {
                   name = value;
-                  setState(() {
-
-                  });
+                  setState(() {});
                 },
               ),
               TextFormField(
                 obscureText: true,
-                decoration: InputDecoration(
-                    hintText: "Enter Password ",
-                    labelText: "Password"
+                decoration: const InputDecoration(
+                    hintText: "Enter Password ", labelText: "Password"),
+              ),
+              const SizedBox(
+                height: 40.0,
+              ),
+              Material(
+                color: Colors.deepPurple,
+                borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
+                child: InkWell(
+                  onTap: () async {
+                    setState(() {
+                      changeButton = true;
+                    });
+                    await Future.delayed(const Duration(seconds: 1));
+                    await Navigator.pushNamed(context, MyRoutes.homeRoute);
+                    setState(() {
+                      changeButton = false;
+                    }); },
+                  child: AnimatedContainer(
+                    duration: const Duration(seconds: 1),
+                    width: changeButton ? 50 : 150,
+                    height: 50,
+                    // color: Colors.deepPurple,
+                    alignment: Alignment.center,
+                    child: changeButton
+                        ? const Icon(
+                            Icons.done,
+                            color: Colors.white,
+                          )
+                        : const Text(
+                            "Login",
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 15,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                  ),
                 ),
-              ),
-              SizedBox(
-                height:40.0,
-              ),
-     InkWell(
-       onTap: () async{
-         setState(() {
-           changeButton = true;
-         });
-         await Future.delayed(Duration(seconds: 1));
-         Navigator.pushNamed(context, MyRoutes.homeRoute);
-       },
-       child: AnimatedContainer(
-         duration: Duration(seconds: 1),
-         width: changeButton? 50 : 150,
-         height: 50,
-        // color: Colors.deepPurple,
-         alignment: Alignment.center,
-         child: changeButton?Icon(Icons.done,color: Colors.green,):
-         Text("Login",
-         style:TextStyle(
-         color:Colors.white,
-         fontSize: 15,
-           fontWeight: FontWeight.bold,
-         ),
-       ),
-         decoration: BoxDecoration(
-           color: Colors.deepPurple,
-         // shape: changeButton?BoxShape.circle:BoxShape.rectangle
-           borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
-         ),
-        ),
-     )
-     /*         ElevatedButton(
-                   child: Text("Login"),
-                style: TextButton.styleFrom(minimumSize: Size(100, 50)),
-                onPressed: (){
-                   //  print("hello world");
-                  Navigator.pushNamed(context, MyRoutes.homeRoute);
-                },
-    )*/
+              )
             ],
-          )
-            ,)
-        ],
-      )
-      )
-    );
-
+          ),
+        )
+      ],
+    )));
   }
 }
