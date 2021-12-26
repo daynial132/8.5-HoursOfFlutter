@@ -1,17 +1,5 @@
-
 class CatalogModels {
-
- static final Product = [
-    item(
-        Id: 1,
-        Name: "Iphone1",
-        Description: "Apple Iphone 12Gen",
-        Price: 999,
-        Color: "black",
-        image:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/IPhone_1st_Gen.svg/200px-IPhone_1st_Gen.svg.png")
-  ];
-
+  static List <item> Product = [];
 }
 
 class item {
@@ -29,4 +17,24 @@ class item {
       required this.Price,
       required this.Color,
       required this.image});
+
+  factory item.fromMap(Map<String, dynamic> map) {
+    return item(
+      Id: map["id"],
+      Name: map["name"],
+      Description: map["desc"],
+      Price: map["price"],
+      Color: map["color"],
+      image: map["image"],
+    );
+  }
+
+  toMap() => {
+        "id": Id,
+        "name": Name,
+        "desc": Description,
+        "price": Price,
+        "color": Color,
+        "image": image
+      };
 }
