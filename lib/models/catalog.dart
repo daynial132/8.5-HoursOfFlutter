@@ -1,5 +1,21 @@
+
+class CatalogModels {
+
+ static final Product = [
+    item(
+        Id: 1,
+        Name: "Iphone1",
+        Description: "Apple Iphone 12Gen",
+        Price: 999,
+        Color: "black",
+        image:
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/IPhone_1st_Gen.svg/200px-IPhone_1st_Gen.svg.png")
+  ];
+
+}
+
 class item {
-  final String Id;
+  final int Id;
   final String Name;
   final String Description;
   final num Price;
@@ -14,14 +30,3 @@ class item {
       required this.Color,
       required this.image});
 }
-
-final Product = [
-  item(
-      Id: "1",
-      Name: "Iphone1",
-      Description: "Apple Iphone 12Gen",
-      Price: 999,
-      Color: "black",
-      image:
-          "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/IPhone_1st_Gen.svg/200px-IPhone_1st_Gen.svg.png")
-];
