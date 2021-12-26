@@ -47,14 +47,45 @@ class _HomePageState extends State<HomePage> {
         padding: const EdgeInsets.all(16.0),
         child:
             (CatalogModels.Product != null && CatalogModels.Product.isNotEmpty)
-                ? ListView.builder(
-                    itemCount: CatalogModels.Product.length,
-                    //CatalogModels.Product.length,
+                ? GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      mainAxisSpacing: 16,
+                      crossAxisSpacing: 16,
+                    ),
                     itemBuilder: (context, index) {
-                      return ItemWidget(
-                        items: CatalogModels.Product[index],
-                      );
-                    })
+                      final item = CatalogModels.Product[index];
+                      return Card(
+                          clipBehavior: Clip.antiAlias,
+                          elevation: 10.0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10)),
+                          child: GridTile(
+                            header: Container(
+                              child: Text(
+                                item.Name,
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              padding: EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: Colors.deepPurple,
+                              ),
+                            ),
+                            child: Image.network(item.image),
+                            footer: Container(
+                              child: Text(
+                                "\$${item.Price}",
+                                style: TextStyle(color: Colors.white),
+                              ),
+                              padding: EdgeInsets.all(12),
+                              decoration: BoxDecoration(
+                                color: Colors.black,
+                              ),
+                            ),
+                          ));
+                    },
+                    itemCount: CatalogModels.Product.length,
+                  )
                 : Center(
                     child: CircularProgressIndicator(), // loader
                   ),
