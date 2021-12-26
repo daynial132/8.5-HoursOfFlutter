@@ -8,8 +8,8 @@ class ItemWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Card(
-     // elevation: 0.0,
-      child: ListTile(
+      shape:StadiumBorder(),
+        child: ListTile(
         leading: Image.network(items.image),
         title: Text(items.Name),
         subtitle: Text(items.Description),
