@@ -6,7 +6,7 @@ class MyTheme {
       ThemeData(
           primarySwatch: Colors.lightGreen,
           fontFamily: GoogleFonts
-              .lato()
+              .poppins()
               .fontFamily,
           appBarTheme: AppBarTheme(
             color: Colors.white,
@@ -21,4 +21,7 @@ class MyTheme {
       ThemeData(
           primarySwatch: Colors.green,
       );
+//Colors
+static Color creamColor = Color(0xfff5f5f5);
+static Color drakBluishColor = Color(0xff403b58);
 }
