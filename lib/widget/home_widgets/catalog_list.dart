@@ -49,11 +49,11 @@ class CatalogItem extends StatelessWidget {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            catalog.Name.text.xl.bold.color(MyTheme.drakBluishColor).make(),
+            catalog.Name.text.bold.color(MyTheme.drakBluishColor).make(),
             catalog.Description.text.make(),
             ButtonBar(
               alignment: MainAxisAlignment.spaceBetween,
-              buttonPadding: Vx.mOnly(right: 8),
+              buttonPadding: Vx.mOnly(right: 4),
               children: [
                 "\$${catalog.Price}".text.bold.lg.make(),
                 ElevatedButton(
@@ -63,7 +63,7 @@ class CatalogItem extends StatelessWidget {
                           MaterialStateProperty.all(MyTheme.drakBluishColor),
                       shape: MaterialStateProperty.all(StadiumBorder()),
                     ),
-                    child: "Buy".text.make())
+                    child: "Add to Cart".text.make())
               ],
             )
           ],
