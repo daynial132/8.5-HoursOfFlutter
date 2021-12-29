@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
     double days = 30;
     return MaterialApp(
       //   home:HomePage(),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: MyTheme.lightTheme(context) ,
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
       // initialRoute: "/home",
       routes: {
-        "/": (context) => HomePage(),
+        "/": (context) => LoginPage(),
         MyRoutes.homeRoute: (context) => HomePage(),
         MyRoutes.loginRoute: (context) => LoginPage(),
         MyRoutes.cartRoute:(context) => CartPage(),

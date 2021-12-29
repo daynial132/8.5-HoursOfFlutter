@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:untitled/utils/routes.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({Key? key}) : super(key: key);
@@ -83,7 +84,7 @@ class _LoginPageState extends State<LoginPage> {
                   height: 40.0,
                 ),
                 Material(
-                  color: Colors.deepPurple,
+                  color: context.theme.buttonColor,
                   borderRadius: BorderRadius.circular(changeButton ? 50 : 8),
                   child: InkWell(
                     onTap: () => moveToHome(context),

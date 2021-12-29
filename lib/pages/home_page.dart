@@ -40,22 +40,24 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     //final dummyList = List.generate(20, (index) => CatalogModels.Product[0]);   //add dummy data
     return Scaffold(
+      backgroundColor: Theme.of(context
+      ).canvasColor,
       floatingActionButton: FloatingActionButton(
         onPressed: ()=> Navigator.pushNamed(context, MyRoutes.cartRoute),
-        backgroundColor: MyTheme.drakBluishColor,
-        child: Icon(CupertinoIcons.cart,),
+        backgroundColor: context.theme.buttonColor,
+        child: Icon(CupertinoIcons.cart,
+        color: Colors.white,),
       ),
-        backgroundColor: MyTheme.creamColor,
         body: SafeArea(
           child: Container(
               padding: Vx.m32,
               child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    CatalogHeader(),
+                    const CatalogHeader(),
                     if (CatalogModels.Product != null &&
                         CatalogModels.Product.isNotEmpty)
-                      CatalogList().expand()
+                      const CatalogList().expand()
                     else
                       CircularProgressIndicator().centered().expand(),
                   ])),
