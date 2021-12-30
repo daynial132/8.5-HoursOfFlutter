@@ -19,7 +19,7 @@ class MyApp extends StatelessWidget {
     double days = 30;
     return MaterialApp(
       //   home:HomePage(),
-      themeMode: ThemeMode.dark,
+      themeMode: ThemeMode.light,
       theme: MyTheme.lightTheme(context) ,
       darkTheme: MyTheme.darkTheme(context),
       debugShowCheckedModeBanner: false,
