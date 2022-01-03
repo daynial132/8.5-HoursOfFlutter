@@ -2,7 +2,12 @@ import 'package:untitled/models/catalog.dart';
 import 'package:untitled/widget/home_widgets/catalog_image.dart';
 
 class CartModel {
-  CatalogModels _catalog;
+  static final cartModel = CartModel._internal();
+
+  CartModel._internal();
+  factory CartModel() => cartModel;
+
+  late CatalogModels _catalog;
 
   final List<int> _itemsIds = [];
 
