@@ -1,18 +1,15 @@
+import 'package:untitled/core/store.dart';
 import 'package:untitled/models/catalog.dart';
 import 'package:untitled/widget/home_widgets/catalog_image.dart';
+import 'package:velocity_x/velocity_x.dart';
 
 class CartModel {
-  static final cartModel = CartModel._internal();
-
-  CartModel._internal();
-  factory CartModel() => cartModel;
-
   late CatalogModels _catalog;
 
   final List<int> _itemsIds = [];
 
   //get Catalog
-  CatalogModels get catalogI => _catalog;
+  CatalogModels get catalog => _catalog;
 
   //set Catalog
   set catalog(CatalogModels newCatalog) {
@@ -24,20 +21,25 @@ class CartModel {
   List<item> get items => _itemsIds.map((Id) => _catalog.getById(Id)).toList();
 
 // Get total price
-num get totalPrice => items.fold(0, (total, current) => total + current.Price);
+  num get totalPrice =>
+      items.fold(0, (total, current) => total + current.Price);
 
-//Add item
-void add(item Item){
-  _itemsIds.add(Item.Id);
 
-}
 //remove item
-  void remove(item Item){
+  void remove(item Item) {
     _itemsIds.remove(Item.Id);
+  }
+}
+
+
+class AddMutation extends VxMutation<MyStore>{
+  final item Item;
+
+  AddMutation(this.Item);
+  @override
+  perform() {
+
+    store!.cart._itemsIds.add(Item.Id);
 
   }
-
-
-
-
 }

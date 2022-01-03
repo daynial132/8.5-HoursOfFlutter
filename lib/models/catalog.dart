@@ -1,10 +1,5 @@
 class CatalogModels {
 
-  static final cartModel = CatalogModels._internal();
-
-  CatalogModels._internal();
-  factory CatalogModels() => cartModel;
-
   static List <item> Product = [];
   item getById(int Id) => Product.firstWhere((element)=>element.Id ==Id ,orElse: null);
   item getByPosition (int pos) => Product[pos];
